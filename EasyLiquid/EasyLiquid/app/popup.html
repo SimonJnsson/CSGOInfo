@@ -1,0 +1,349 @@
+<!doctype html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<style> 
+    /*Move to external .css file*/
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    p { line-height: 1.1em }
+
+    body {
+        font-family: 'Open Sans', sans-serif;
+        max-height: 450px;
+        background-color: rgb(58, 59, 63);
+        width: 350px;
+        height: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    img {
+        vertical-align: middle;
+        width: 75px;
+        height: 75px;
+    }
+
+    #topDiv { height: 75px; }
+
+    #topBar {
+        z-index: 999;
+        position: fixed;
+        top: 0;
+        padding-top: 5px;
+        line-height: 40px;
+        height: 34px;
+        width: 100%;
+        background-color: #22313F;
+        border-bottom: 1px solid white;
+    }
+
+    .button {
+        -webkit-transition: background-color 0.4s;
+        margin-left: 2px;
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        height: 95%;
+        width: 10%;
+        border-width: 1px 1px 1px 1px;
+        border-style: solid;
+        border-color: white;
+        background-color: rgb(58, 59, 63);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .headline {
+        padding-top: 2%;
+        background-color: #2c3e50;
+        z-index: 1;
+        position: fixed;
+        top: 34px;
+        text-align: center;
+        width: 100%;
+        border-bottom: 1px solid white;
+    }
+
+    #button1 {
+        margin-left: 5px;
+        background-image: url("img/tournamentIcon.png");
+    }
+
+    #button2 { background-image: url("img/matchIcon.png"); }
+
+    #button3 { background-image: url("img/playerIcon.png"); }
+
+    #settingsButton {
+        float: right;
+        background-image: url("img/settings.png");
+        margin-right: 5px;
+    }
+
+    .unselectable {
+        -webkit-user-select: none;
+        cursor: default;
+    }
+
+    .tab {
+        color: white;
+        display: none;
+        width: 100%;
+        background-color: #2c3e50;
+    }
+
+    .tournamentArea, .matchArea {
+        width: 100%;
+        height: 100%;
+    }
+
+    .tournament:nth-child(odd), .match:nth-child(odd) { background-color: #2c3e50; }
+
+    .tournament, .match {
+        line-height: 100%;
+        background-color: #34495e;
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .tournamentLogo {
+        margin-left: 2%;
+        margin-right: 2%;
+        float: left;
+        height: 40px;
+        width: 40px;
+        max-width: 50px;
+        max-width: 50px;
+        margin-bottom: 6px;
+        -webkit-filter: drop-shadow(2px 2px 3px #222);
+        filter: dropShadow(5px 5px 5px #222);
+    }
+
+    .tournamentLogo[href] { cursor: pointer; }
+
+    .arrow, .alarmBtn {
+        cursor: pointer;
+        opacity: 0.3;
+        padding-left: 2.5%;
+        padding-right: 2.5%;
+        float: right;
+        height: 30px;
+        width: auto;
+        transition: transform 0.25s;
+        margin-bottom: 6px;
+    }
+
+    .selected { opacity: 1; }
+
+    .alarmBtn {
+        height: 20px;
+        position: absolute;
+        right: 0;
+        transform: translate(0, -100%);
+    }
+
+    .status {
+        vertical-align: middle;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    .infoIcon {
+        height: 11px;
+        width: auto;
+        margin-right: 5px;
+    }
+
+    .tournamentInfo, .matchInfo {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .tournamentInfo { height: 39px; }
+
+    .arrow:hover { opacity: 1; }
+
+    .tournamentName {
+        font-weight: bold;
+        font-size: 1.1em
+    }
+
+    .dropdown { transition: all .15s ease .10s; }
+
+    .dropdown p { margin-left: 5%; }
+
+    .hidden {
+        max-height: 0;
+        opacity: 0;
+    }
+
+    .visible {
+        max-height: 500px;
+        opacity: 1;
+    }
+
+    #toorLogo {
+        position: absolute;
+        transform: translate(20%, 0);
+        height: 35px;
+        width: auto;
+    }
+
+    .participantName {
+        display: inline-block;
+        width: 45%;
+    }
+
+    .streamText { display: inline-block; }
+
+    .streamLink img {
+        width: 10%;
+        height: auto;
+    }
+
+    .alarmBtn:hover:not(.selected) { opacity: .75; }
+
+    .opponentOne, .opponentTwo {
+        display: inline-block;
+        width: 25%;
+    }
+
+    .opponentOne { text-align: right; }
+
+    .versus {
+        text-align: center;
+        display: inline-block;
+        width: 10%;
+    }
+
+    .opponentOne, .opponentTwo {
+        font-size: 1.1em;
+        font-weight: bold;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .match { height: 60px; }
+
+    .opponents {
+        margin-left: 3%;
+        width: 80%;
+        display: inline;
+    }
+
+    .matchStart {
+        text-align: center;
+        width: 80%;
+    }
+
+    ::-webkit-scrollbar { display: none; }
+
+
+    .rotated { transform: rotate(180deg); }
+
+    .settingsText {
+        user-select: none;
+        height: 7px;
+        transition: all ease 0.3s;
+        opacity: 0;
+        margin-left: 11%;
+        font-size: 1.2em;
+    }
+
+    .active .settingsText { opacity: 1; }
+
+    ::-webkit-input-placeholder { /* WebKit browsers */
+        transition: all ease 0.3s;
+    }
+
+    .settingsInput {
+        outline: none;
+        font-size: 1.4em;
+        margin: 0 10px 20px 10px;
+        width: calc(100% - 60px);
+        color: white;
+        background-color: transparent;
+        padding: 10px;
+        border: none;
+        border-bottom: solid 3px #c9c9c9;
+        transition: border 0.3s;
+    }
+
+    .settingsInput:focus { border-bottom: solid 3px rgb(227, 0, 0); }
+
+    .timeBeforeMatch {
+        background: url(img/alarmIdle.png) no-repeat;
+        background-size: 5%;
+        background-position-y: center;
+        padding-left: 30px;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button { padding-top: 5px; }
+
+    .setting {
+        margin-top: 5px;
+        height: auto;
+    }
+
+    .streamStatus {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    .stream { cursor: pointer; }
+</style>
+<script src="jquery.js"></script>
+<script src="popup.js"></script>
+</head>
+<body>
+<div id="topDiv"></div>
+<div id="topBar">
+    <div alt="1" class="button" id="button1"></div>
+    <div alt="2" class="button" id="button2"></div>
+    <div alt="3" class="button" id="button3"></div>
+    <a href="https://www.toornament.com/">
+        <img src="img/toornamentLight.png" id="toorLogo"/>
+    </a>
+    <div alt="6" class="button" id="settingsButton"></div>
+</div>
+
+<div class="tab" id="tab1">
+    <h1 class="headline unselectable">Tournaments</h1>
+    <div class="tournamentArea"></div>
+</div>
+<div class="tab" id="tab2">
+    <h1 class="headline unselectable">Matches</h1>
+    <div class="matchArea">
+    </div>
+</div>
+<div class="tab" id="tab3">
+    <h1 class="headline unselectable">Streams</h1>
+    <div class="streamArea">
+    </div>
+</div>
+<div class="tab"id="tab4">
+    <h1 class="headline unselectable">Tab 4</h1>
+</div>
+<div class="tab" id="tab5">
+    <h1 class="headline unselectable">Tab 5</h1>
+</div>
+<div class="tab" id="tab6">
+    <h1 class="headline unselectable">Settings</h1>
+    <div class="setting">
+        <p class="settingsText">Remind before match, default 15 min</p>
+        <input min="1" max="120" placeholder="Remind before match, default 15" type="number" class="settingsInput timeBeforeMatch"/>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9D141603-1A9D-4EEC-82D8-C473EA436839}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EasyLiquid</RootNamespace>
+    <AssemblyName>EasyLiquid</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="app\background.js" />
+    <Content Include="app\img\alarmHighlight.png" />
+    <Content Include="app\img\alarmIdle.png" />
+    <Content Include="app\img\arrow.png" />
+    <Content Include="app\img\dreamhack.png" />
+    <Content Include="app\img\ecs.png" />
+    <Content Include="app\img\ESL.png" />
+    <Content Include="app\img\faceit.png" />
+    <Content Include="app\img\fam.png" />
+    <Content Include="app\img\flags\ad.png" />
+    <Content Include="app\img\flags\ae.png" />
+    <Content Include="app\img\flags\af.png" />
+    <Content Include="app\img\flags\ag.png" />
+    <Content Include="app\img\flags\ai.png" />
+    <Content Include="app\img\flags\al.png" />
+    <Content Include="app\img\flags\am.png" />
+    <Content Include="app\img\flags\an.png" />
+    <Content Include="app\img\flags\ao.png" />
+    <Content Include="app\img\flags\ar.png" />
+    <Content Include="app\img\flags\as.png" />
+    <Content Include="app\img\flags\at.png" />
+    <Content Include="app\img\flags\au.png" />
+    <Content Include="app\img\flags\aw.png" />
+    <Content Include="app\img\flags\ax.png" />
+    <Content Include="app\img\flags\az.png" />
+    <Content Include="app\img\flags\ba.png" />
+    <Content Include="app\img\flags\bb.png" />
+    <Content Include="app\img\flags\bd.png" />
+    <Content Include="app\img\flags\be.png" />
+    <Content Include="app\img\flags\bf.png" />
+    <Content Include="app\img\flags\bg.png" />
+    <Content Include="app\img\flags\bh.png" />
+    <Content Include="app\img\flags\bi.png" />
+    <Content Include="app\img\flags\bj.png" />
+    <Content Include="app\img\flags\bm.png" />
+    <Content Include="app\img\flags\bn.png" />
+    <Content Include="app\img\flags\bo.png" />
+    <Content Include="app\img\flags\br.png" />
+    <Content Include="app\img\flags\bs.png" />
+    <Content Include="app\img\flags\bt.png" />
+    <Content Include="app\img\flags\bv.png" />
+    <Content Include="app\img\flags\bw.png" />
+    <Content Include="app\img\flags\by.png" />
+    <Content Include="app\img\flags\bz.png" />
+    <Content Include="app\img\flags\ca.png" />
+    <Content Include="app\img\flags\catalonia.png" />
+    <Content Include="app\img\flags\cc.png" />
+    <Content Include="app\img\flags\cd.png" />
+    <Content Include="app\img\flags\cf.png" />
+    <Content Include="app\img\flags\cg.png" />
+    <Content Include="app\img\flags\ch.png" />
+    <Content Include="app\img\flags\ci.png" />
+    <Content Include="app\img\flags\ck.png" />
+    <Content Include="app\img\flags\cl.png" />
+    <Content Include="app\img\flags\cm.png" />
+    <Content Include="app\img\flags\cn.png" />
+    <Content Include="app\img\flags\co.png" />
+    <Content Include="app\img\flags\cr.png" />
+    <Content Include="app\img\flags\cs.png" />
+    <Content Include="app\img\flags\cu.png" />
+    <Content Include="app\img\flags\cv.png" />
+    <Content Include="app\img\flags\cx.png" />
+    <Content Include="app\img\flags\cy.png" />
+    <Content Include="app\img\flags\cz.png" />
+    <Content Include="app\img\flags\de.png" />
+    <Content Include="app\img\flags\dj.png" />
+    <Content Include="app\img\flags\dk.png" />
+    <Content Include="app\img\flags\dm.png" />
+    <Content Include="app\img\flags\do.png" />
+    <Content Include="app\img\flags\dz.png" />
+    <Content Include="app\img\flags\ec.png" />
+    <Content Include="app\img\flags\ee.png" />
+    <Content Include="app\img\flags\eg.png" />
+    <Content Include="app\img\flags\eh.png" />
+    <Content Include="app\img\flags\england.png" />
+    <Content Include="app\img\flags\er.png" />
+    <Content Include="app\img\flags\es.png" />
+    <Content Include="app\img\flags\et.png" />
+    <Content Include="app\img\flags\europeanunion.png" />
+    <Content Include="app\img\flags\fam.png" />
+    <Content Include="app\img\flags\fi.png" />
+    <Content Include="app\img\flags\fj.png" />
+    <Content Include="app\img\flags\fk.png" />
+    <Content Include="app\img\flags\fm.png" />
+    <Content Include="app\img\flags\fo.png" />
+    <Content Include="app\img\flags\fr.png" />
+    <Content Include="app\img\flags\ga.png" />
+    <Content Include="app\img\flags\gb.png" />
+    <Content Include="app\img\flags\gd.png" />
+    <Content Include="app\img\flags\ge.png" />
+    <Content Include="app\img\flags\gf.png" />
+    <Content Include="app\img\flags\gh.png" />
+    <Content Include="app\img\flags\gi.png" />
+    <Content Include="app\img\flags\gl.png" />
+    <Content Include="app\img\flags\gm.png" />
+    <Content Include="app\img\flags\gn.png" />
+    <Content Include="app\img\flags\gp.png" />
+    <Content Include="app\img\flags\gq.png" />
+    <Content Include="app\img\flags\gr.png" />
+    <Content Include="app\img\flags\gs.png" />
+    <Content Include="app\img\flags\gt.png" />
+    <Content Include="app\img\flags\gu.png" />
+    <Content Include="app\img\flags\gw.png" />
+    <Content Include="app\img\flags\gy.png" />
+    <Content Include="app\img\flags\hk.png" />
+    <Content Include="app\img\flags\hm.png" />
+    <Content Include="app\img\flags\hn.png" />
+    <Content Include="app\img\flags\hr.png" />
+    <Content Include="app\img\flags\ht.png" />
+    <Content Include="app\img\flags\hu.png" />
+    <Content Include="app\img\flags\id.png" />
+    <Content Include="app\img\flags\ie.png" />
+    <Content Include="app\img\flags\il.png" />
+    <Content Include="app\img\flags\in.png" />
+    <Content Include="app\img\flags\io.png" />
+    <Content Include="app\img\flags\iq.png" />
+    <Content Include="app\img\flags\ir.png" />
+    <Content Include="app\img\flags\is.png" />
+    <Content Include="app\img\flags\it.png" />
+    <Content Include="app\img\flags\jm.png" />
+    <Content Include="app\img\flags\jo.png" />
+    <Content Include="app\img\flags\jp.png" />
+    <Content Include="app\img\flags\ke.png" />
+    <Content Include="app\img\flags\kg.png" />
+    <Content Include="app\img\flags\kh.png" />
+    <Content Include="app\img\flags\ki.png" />
+    <Content Include="app\img\flags\km.png" />
+    <Content Include="app\img\flags\kn.png" />
+    <Content Include="app\img\flags\kp.png" />
+    <Content Include="app\img\flags\kr.png" />
+    <Content Include="app\img\flags\kw.png" />
+    <Content Include="app\img\flags\ky.png" />
+    <Content Include="app\img\flags\kz.png" />
+    <Content Include="app\img\flags\la.png" />
+    <Content Include="app\img\flags\lb.png" />
+    <Content Include="app\img\flags\lc.png" />
+    <Content Include="app\img\flags\li.png" />
+    <Content Include="app\img\flags\lk.png" />
+    <Content Include="app\img\flags\lr.png" />
+    <Content Include="app\img\flags\ls.png" />
+    <Content Include="app\img\flags\lt.png" />
+    <Content Include="app\img\flags\lu.png" />
+    <Content Include="app\img\flags\lv.png" />
+    <Content Include="app\img\flags\ly.png" />
+    <Content Include="app\img\flags\ma.png" />
+    <Content Include="app\img\flags\mc.png" />
+    <Content Include="app\img\flags\md.png" />
+    <Content Include="app\img\flags\me.png" />
+    <Content Include="app\img\flags\mg.png" />
+    <Content Include="app\img\flags\mh.png" />
+    <Content Include="app\img\flags\mk.png" />
+    <Content Include="app\img\flags\ml.png" />
+    <Content Include="app\img\flags\mm.png" />
+    <Content Include="app\img\flags\mn.png" />
+    <Content Include="app\img\flags\mo.png" />
+    <Content Include="app\img\flags\mp.png" />
+    <Content Include="app\img\flags\mq.png" />
+    <Content Include="app\img\flags\mr.png" />
+    <Content Include="app\img\flags\ms.png" />
+    <Content Include="app\img\flags\mt.png" />
+    <Content Include="app\img\flags\mu.png" />
+    <Content Include="app\img\flags\mv.png" />
+    <Content Include="app\img\flags\mw.png" />
+    <Content Include="app\img\flags\mx.png" />
+    <Content Include="app\img\flags\my.png" />
+    <Content Include="app\img\flags\mz.png" />
+    <Content Include="app\img\flags\na.png" />
+    <Content Include="app\img\flags\nc.png" />
+    <Content Include="app\img\flags\ne.png" />
+    <Content Include="app\img\flags\nf.png" />
+    <Content Include="app\img\flags\ng.png" />
+    <Content Include="app\img\flags\ni.png" />
+    <Content Include="app\img\flags\nl.png" />
+    <Content Include="app\img\flags\no.png" />
+    <Content Include="app\img\flags\np.png" />
+    <Content Include="app\img\flags\nr.png" />
+    <Content Include="app\img\flags\nu.png" />
+    <Content Include="app\img\flags\nz.png" />
+    <Content Include="app\img\flags\om.png" />
+    <Content Include="app\img\flags\pa.png" />
+    <Content Include="app\img\flags\pe.png" />
+    <Content Include="app\img\flags\pf.png" />
+    <Content Include="app\img\flags\pg.png" />
+    <Content Include="app\img\flags\ph.png" />
+    <Content Include="app\img\flags\pk.png" />
+    <Content Include="app\img\flags\pl.png" />
+    <Content Include="app\img\flags\pm.png" />
+    <Content Include="app\img\flags\pn.png" />
+    <Content Include="app\img\flags\pr.png" />
+    <Content Include="app\img\flags\ps.png" />
+    <Content Include="app\img\flags\pt.png" />
+    <Content Include="app\img\flags\pw.png" />
+    <Content Include="app\img\flags\py.png" />
+    <Content Include="app\img\flags\qa.png" />
+    <Content Include="app\img\flags\re.png" />
+    <Content Include="app\img\flags\ro.png" />
+    <Content Include="app\img\flags\rs.png" />
+    <Content Include="app\img\flags\ru.png" />
+    <Content Include="app\img\flags\rw.png" />
+    <Content Include="app\img\flags\sa.png" />
+    <Content Include="app\img\flags\sb.png" />
+    <Content Include="app\img\flags\sc.png" />
+    <Content Include="app\img\flags\scotland.png" />
+    <Content Include="app\img\flags\sd.png" />
+    <Content Include="app\img\flags\se.png" />
+    <Content Include="app\img\flags\sg.png" />
+    <Content Include="app\img\flags\sh.png" />
+    <Content Include="app\img\flags\si.png" />
+    <Content Include="app\img\flags\sj.png" />
+    <Content Include="app\img\flags\sk.png" />
+    <Content Include="app\img\flags\sl.png" />
+    <Content Include="app\img\flags\sm.png" />
+    <Content Include="app\img\flags\sn.png" />
+    <Content Include="app\img\flags\so.png" />
+    <Content Include="app\img\flags\sr.png" />
+    <Content Include="app\img\flags\st.png" />
+    <Content Include="app\img\flags\sv.png" />
+    <Content Include="app\img\flags\sy.png" />
+    <Content Include="app\img\flags\sz.png" />
+    <Content Include="app\img\flags\tc.png" />
+    <Content Include="app\img\flags\td.png" />
+    <Content Include="app\img\flags\tf.png" />
+    <Content Include="app\img\flags\tg.png" />
+    <Content Include="app\img\flags\th.png" />
+    <Content Include="app\img\flags\tj.png" />
+    <Content Include="app\img\flags\tk.png" />
+    <Content Include="app\img\flags\tl.png" />
+    <Content Include="app\img\flags\tm.png" />
+    <Content Include="app\img\flags\tn.png" />
+    <Content Include="app\img\flags\to.png" />
+    <Content Include="app\img\flags\tr.png" />
+    <Content Include="app\img\flags\tt.png" />
+    <Content Include="app\img\flags\tv.png" />
+    <Content Include="app\img\flags\tw.png" />
+    <Content Include="app\img\flags\tz.png" />
+    <Content Include="app\img\flags\ua.png" />
+    <Content Include="app\img\flags\ug.png" />
+    <Content Include="app\img\flags\um.png" />
+    <Content Include="app\img\flags\us.png" />
+    <Content Include="app\img\flags\uy.png" />
+    <Content Include="app\img\flags\uz.png" />
+    <Content Include="app\img\flags\va.png" />
+    <Content Include="app\img\flags\vc.png" />
+    <Content Include="app\img\flags\ve.png" />
+    <Content Include="app\img\flags\vg.png" />
+    <Content Include="app\img\flags\vi.png" />
+    <Content Include="app\img\flags\vn.png" />
+    <Content Include="app\img\flags\vu.png" />
+    <Content Include="app\img\flags\wales.png" />
+    <Content Include="app\img\flags\wf.png" />
+    <Content Include="app\img\flags\ws.png" />
+    <Content Include="app\img\flags\ye.png" />
+    <Content Include="app\img\flags\yt.png" />
+    <Content Include="app\img\flags\za.png" />
+    <Content Include="app\img\flags\zm.png" />
+    <Content Include="app\img\flags\zw.png" />
+    <Content Include="app\img\globe.png" />
+    <Content Include="app\img\icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="app\img\icon128.png" />
+    <Content Include="app\img\icon16.png" />
+    <Content Include="app\img\icon48.png" />
+    <Content Include="app\img\matchIcon.png" />
+    <Content Include="app\img\placeholder.png" />
+    <Content Include="app\img\playerIcon.png" />
+    <Content Include="app\img\reddot.png" />
+    <Content Include="app\img\settings.png" />
+    <Content Include="app\img\starladder.png" />
+    <Content Include="app\img\teamIcon.png" />
+    <Content Include="app\img\toornamentDark.png" />
+    <Content Include="app\img\toornamentLight.png" />
+    <Content Include="app\img\tournamenticon.png" />
+    <Content Include="app\img\twitchIcon.png" />
+    <Content Include="app\jquery.js" />
+    <Content Include="app\popup.html" />
+    <Content Include="app\popup.js" />
+    <Content Include="Properties\build\lib\Ionic.Zip.DLL" />
+    <Content Include="Properties\build\lib\MSBuild.ExtensionPack.dll" />
+    <Content Include="index.htm" />
+    <Content Include="Properties\build\ligershark.chrome.targets" />
+    <Content Include="screenshots\csgoscreenshot1.png" />
+    <None Include="scripts\_references.js" />
+    <None Include="scripts\chrome-api-vsdoc.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\manifest.json" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <!-- insert a condition to ensure that these are not imported -->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" Condition="false" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="false and '$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>1530</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:46950/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <AppFolder Condition=" '$(AppFolder)'=='' ">app\</AppFolder>
+    <AppFileName Condition=" '$(AppFileName)'=='' ">$(AssemblyName).zip</AppFileName>
+    <BuildFolder Condition=" '$(BuildFolder)'=='' ">$(MSBuildProjectDirectory)\properties\build\</BuildFolder>
+    <BuildLib Condition=" '$(BuildLib)'=='' ">$(BuildFolder)Lib\</BuildLib>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppFileNameItem Include="$(OutputPath)$(AppFilename)" />
+    <AppFolderItem Include="$(AppFolder)" />
+  </ItemGroup>
+  <PropertyGroup>
+    <LigerSharkChromeTargetsPath>$(BuildFolder)\ligershark.chrome.targets</LigerSharkChromeTargetsPath>
+  </PropertyGroup>
+  <Import Project="$(LigerSharkChromeTargetsPath)" Condition="Exists($(LigerSharkChromeTargetsPath))" />
+</Project>
