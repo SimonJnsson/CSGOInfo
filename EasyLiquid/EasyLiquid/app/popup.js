@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function()
 
     var NAME_MAXLENGTH = 36;
 
-    var tournaments = [];
+    tournaments = [];
     var tournamentUrl = "https://api.toornament.com/v1/tournaments";
 
     currDate = new Date();
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function()
                 // String for creating a 'tournament' element
                 var tournament = '<div class="tournament" id=' + tournamentId + '>' +
                     '<div class="tournamentInfo">' +
-                    '<img class="tournamentLogo" src="img/' + GetTournamentImage(tournamentName) + '.png"/>' +
+                    '<img class="tournamentLogo" src="' + obj.logo.logo_small + '"/>' +
                     '<img class="arrow" src="' + arrow + '"/>' +
                     '<p class="tournamentName">' + tournamentName + '</p>' +
                     '<p class="tournamentDate">' + tournamentDate + '</p>';
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function()
                         var tournamentStatus = response.status;
                         var tournementWebsite = response.website;
                         //console.log("Status: " + tournamentStatus);
-
+                        console.log(response);
                         if (tournementWebsite != null && tournementWebsite !== 'undefined') // If the obj contains a website
                         {
                             $('#' + tournamentId).find('.tournamentLogo').attr('href', tournementWebsite); // Set the 'href' attribute on the tournament logo
@@ -278,22 +278,26 @@ document.addEventListener("DOMContentLoaded", function()
 
             $.each(matches, function(index, obj)
             {
-                var tournamentName = obj.tournament.full_name;
+                var tournamentName = obj.tournament.full_name == null ? obj.tournament.name : obj.tournament.full_name;
                 var teamOne = "";
                 var teamTwo = "";
                 var rawStartdate = new Date(obj.date); // Cast the start date to a new 'Date'
                 var formatMinutes = rawStartdate.getMinutes() < 10 ? "0" + rawStartdate.getMinutes() : rawStartdate.getMinutes();
-                var startDate = rawStartdate.getDate() + "/" + ('0' + (rawStartdate.getMonth() + 1)).slice(-2) + "/" + rawStartdate.getFullYear() + " - " + rawStartdate.getHours() + ":" + formatMinutes; // Format the newly created 'Date'
+                var formatHours = rawStartdate.getHours() < 10 ? "0" + rawStartdate.getHours() : rawStartdate.getHours();
+                console.log(rawStartdate);
+                var startDate = rawStartdate.getDate() + "/" + ('0' + (rawStartdate.getMonth() + 1)).slice(-2) + "/" + rawStartdate.getFullYear() + " - " + formatHours + ":" + formatMinutes; // Format the newly created 'Date'
                 obj.opponents[0].participant == null ? teamOne = "TBD" : teamOne = obj.opponents[0].participant.name;
                 obj.opponents[1].participant == null ? teamTwo = "TBD" : teamTwo = obj.opponents[1].participant.name;
                 var tournamentId = obj.tournament.id;
                 var matchId = obj.id;
+                var tournamentLogo = $.grep(tournaments, function(e) { return e.id == tournamentId; })[0] == null ? "img/icon.png" : $.grep(tournaments, function(e) { return e.id == tournamentId; })[0].logo.logo_small;
+                console.log(tournaments);
 
                 console.log(obj);
 
                 var match = '<div id="' + matchId + '" class="match" data-matchId="' + matchId + '" data-tournamentId="' + tournamentId + '">' +
                     '<div class="matchInfo">' +
-                    '<img class="tournamentLogo" src="img/' + GetTournamentImage(tournamentName) + '.png"/>' +
+                    '<img class="tournamentLogo" src="' + tournamentLogo + '"/>' +
                     '<div class="opponents">' +
                     '<p class="opponentOne">' + teamOne + '</p>' +
                     '<p class="versus"> VS </p>' +
@@ -433,31 +437,4 @@ function guid()
 
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
         s4() + '-' + s4() + s4() + s4();
-}
-
-// Get the proper image determined by the name of the tournament
-function GetTournamentImage(name) // Get the proper image determined by the name of the tournament
-{
-    var returnValue = "icon";
-    if (name == null)
-        return returnValue;
-
-    if (name.toLowerCase().indexOf('esl') > -1)
-        returnValue = "esl";
-    else if (name.toLowerCase().indexOf('starladder') > -1)
-        returnValue = "starladder";
-    else if (name.toLowerCase().indexOf('ecs') > -1)
-        returnValue = "ecs";
-    else if (name.toLowerCase().indexOf('red dot') > -1)
-        returnValue = "reddot";
-    else if (name.toLowerCase().indexOf('esports championship series') > -1)
-        returnValue = "ecs";
-    else if (name.toLowerCase().indexOf('cevo') > -1)
-        returnValue = "cevo";
-    else if (name.toLowerCase().indexOf('dreamhack') > -1)
-        returnValue = "dreamhack";
-    else if (name.toLowerCase().indexOf('faceit') > -1 || name.toLowerCase().indexOf('face it') > -1)
-        returnValue = "faceit";
-
-    return returnValue;
 }
